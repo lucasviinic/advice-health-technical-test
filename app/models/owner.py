@@ -14,3 +14,14 @@ class Owner(Base):
     created_at = Column(DateTime, server_default=func.current_timestamp())
     updated_at = Column(DateTime, server_default=func.current_timestamp(), onupdate=func.current_timestamp())
     deleted_at = Column(DateTime, nullable=True)
+
+    def to_dict(self):
+        return {
+            'id': str(self.id),
+            'name': self.name,
+            'cpf': self.cpf,
+            'sales_opportunity': self.sales_opportunity,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'deleted_at': self.deleted_at
+        }
