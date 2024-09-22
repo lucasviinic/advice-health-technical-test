@@ -22,9 +22,18 @@ class CarUseCase:
         if car_count >= 3:
             return None, "Owner already has 3 cars"
 
+        color = data['color']
+        model = data['model']
+
+        if color not in ['yellow', 'blue', 'gray']:
+            raise ValueError("Invalid value for car color")
+
+        if model not in ['hatch', 'sedan', 'convertible']:
+            raise ValueError("Invalid value for car model")
+
         new_car = Car(
-            color=data['color'],
-            model=data['model'],
+            color=color,
+            model=model,
             owner_id=owner_id
         )
         return self.car_repo.create(new_car), None
