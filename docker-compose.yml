@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app:ro
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_DEBUG=1
+      - DATABASE_URL=${DATABASE_URL}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-test1234!}
+      - POSTGRES_DB=${DB_NAME:-AutoRepairShopDB}
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
