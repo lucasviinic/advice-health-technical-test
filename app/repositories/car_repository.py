@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from app.models.car import Car
 from app.database import get_db
 
@@ -25,5 +26,5 @@ class CarRepository:
         return car
 
     def soft_delete(self, car):
-        car.deleted_at = datetime.utcnow()
+        car.deleted_at = datetime.now(timezone.utc)
         self.db.commit()
