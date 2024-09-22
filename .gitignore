@@ -21,7 +21,6 @@ build/
 
 # Ignore logs
 *.log
-*.txt
 
 # Ignore coverage reports
 htmlcov/
