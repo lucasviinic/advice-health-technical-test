@@ -1,0 +1,36 @@
+# Ignore virtual environment folder
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+
+# Ignore Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Ignore logs
+*.log
+*.txt
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Ignore test outputs
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
