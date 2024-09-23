@@ -49,8 +49,11 @@ docker-compose exec web flask db upgrade
 ```
 
 ### 5. Executar os testes
+```
+docker-compose run test
+```
 
-Para rodar os testes automatizados:
+### 6. Rodar a API
 ```
 docker-compose run test
 ```
