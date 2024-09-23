@@ -9,7 +9,7 @@ class Owner(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, nullable=False)
     name = Column(String(255), nullable=False)
-    cpf = Column(String(14), unique=True)
+    cpf = Column(String(14))
     sales_opportunity = Column(Boolean, default=True)
     created_at = Column(DateTime, server_default=func.current_timestamp())
     updated_at = Column(DateTime, server_default=func.current_timestamp(), onupdate=func.current_timestamp())

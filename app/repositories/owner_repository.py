@@ -15,6 +15,9 @@ class OwnerRepository:
 
     def find_by_id(self, owner_id):
         return self.db.query(Owner).filter(Owner.id == owner_id, Owner.deleted_at == None).first()
+    
+    def find_by_cpf(self, cpf):
+        return self.db.query(Owner).filter(Owner.cpf == cpf, Owner.deleted_at == None).first()
 
     def create(self, owner):
         self.db.add(owner)

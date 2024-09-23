@@ -20,4 +20,4 @@ RUN chown -R appuser:appuser /app
 
 USER appuser
 
-CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["./start.sh"]

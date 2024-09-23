@@ -10,6 +10,16 @@ class OwnerUseCase:
         return self.owner_repo.find_all(sales_opportunity)
 
     def create_owner(self, data):
+        existing_owner = self.owner_repo.find_by_cpf(data['cpf'])
+
+        if existing_owner:
+            if existing_owner.deleted_at is None:
+                raise ValueError(f"Owner with CPF {data['cpf']} already exists.")
+            else:
+                existing_owner.deleted_at = None
+                updated_owner = self.owner_repo.update(existing_owner)
+                return updated_owner
+
         new_owner = Owner(
             name=data['name'],
             cpf=data['cpf'],
